@@ -1,7 +1,12 @@
+# Solution to Assignment 1
+
 Creating a New Directory
+
+```
 mkdir class
 cd class
 touch readme.md
+```
 
 Samtools Version
 apt install samtools
@@ -24,3 +29,4 @@ Relative Path
 sudo cat ../files/file1.txt
 cd ..
 sudo cat ../coding/file2.txt
+
