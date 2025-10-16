@@ -1,41 +1,15 @@
-# Solution to Assignment 1
+# BMMB 852 Assignments
 
-Creating a New Directory
+Week 1: Set Up and Basic Commands
 
-```
-mkdir class
-cd class
-touch readme.md
-```
+Week 2: Data Analysis at the UNIX Command Line
 
-Samtools Version
-```
-apt install samtools
-samtools --version
-```
+Week 3: Visualizing Genomic Data
 
-Samtools version is 1.19.2
+Week 4: Obtain Genomic Data Via Accession Number
 
-Making a Nested Directory Structure (in the class directory)
-```
-mkdir -p coding/files
-```
+Week 5: Obtain and Visualize FASTQ Data from SRA
 
-To Create Files in Different Directories
-```
-touch coding/files/file1.txt
-touch coding/file2.txt
-```
+Week 6: Generate a BAM Alignment File
 
-Absolute Path
-```
-root/class/coding/files/file1.txt
-root/class/coding/file2.txt
-```
-
-Relative Path
-```
-sudo cat ../files/file1.txt
-cd ..
-sudo cat ../coding/file2.txt
-```
+Week 7: Write a Reusable Alignment Makefile
