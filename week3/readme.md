@@ -3,7 +3,7 @@
 ## 1. Use IGV to visualize your genome and the annotations relative to the genome.
 How big is the genome?
 
-I selected a bacteria from the "bacteria 5 collection," acinetobacter_baumannii_atcc_19606_cip_70_34_jcm_6841_gca_000162295. I used the following commands to determine the length of the genome:
+I selected a bacterium from the "bacteria 5 collection," acinetobacter_baumannii_atcc_19606_cip_70_34_jcm_6841_gca_000162295. I used the following commands to determine the length of the genome:
 
 ```
 conda activate bioinfo
@@ -42,16 +42,17 @@ cat abaum.gff | grep "gene" | wc -l > genes.gff
 cat abaum.gff | grep "transcript" | wc -l > transcripts.gff
 ```
 
-I used the "ls" command to double check that the new files were created.
+I used the "ls" command to double-check that the new files were created.
 
 ## 3. Visualize the simplified GFF in IGV as a separate track. Compare the visualization of the original GFF with the simplified GFF.
 Here are the collapsed and expanded views of the sequence for "supercont1.1" in the genome that I chose.
+<img width="1536" height="806" alt="igv_snapshot3" src="https://github.com/user-attachments/assets/457d7fda-771c-4690-a85c-d8bc671040fb" />
 
-
-The expanded view presents the transcripts and genes present in the sequence in a way that is much easier to see and understand a quick glance. You can see where the different genes start and stop, whereas with the collapsed view, if two genes are next to each other they appear as one continous box. 
+The expanded view presents the transcripts and genes present in the sequence in a way that is much easier to see and understand at a glance. You can see where the different genes start and stop, whereas with the collapsed view, if two genes are next to each other, they appear as one continuous box. 
 
 ## 4. Zoom in to see the sequences, expand the view to show the translation table in IGV.
 Note how the translation table needs to be displayed in the correct orientation for it to make sense.
-
+<img width="1536" height="806" alt="igv_snapshot4" src="https://github.com/user-attachments/assets/361cb415-7768-4ec0-b122-fb9d4a1398c8" />
 
 ## 5. Visually verify that the first coding sequence of a gene starts with a start codon and that the last coding sequence of a gene ends with a stop codon.
+<img width="1106" height="580" alt="igv_snapshot5_edit" src="https://github.com/user-attachments/assets/0844e3d0-25e4-4d69-819e-43f59bbbf04c" />
