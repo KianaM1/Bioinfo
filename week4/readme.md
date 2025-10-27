@@ -18,6 +18,7 @@ ls
 
 ## 2. Visualize the genome and annotations.
 A. How big is the genome?
+
 The genome is 10,794 nucleotides long. 
 
 B. How many features does the GFF file contain?
