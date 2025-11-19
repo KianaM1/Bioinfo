@@ -16,6 +16,11 @@ bio search SRR3194431
 mkdir -p reads
 fastq-dump -X 1000 -F --outdir reads --split-files SRR3194431
 
+# View file stats
+cd reads/
+seqkit stats SRR3194431_1.fastq
+```
+
 ## 3. Perform a quality assesment.
 - Generate basic statistics on the downloaded reads (e.g., number of reads, total bases, average read length).
 - Run FASTQC on the downloaded data to generate a quality report. Evaluate the report and summarize the findings.
