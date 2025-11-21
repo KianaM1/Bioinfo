@@ -1,8 +1,8 @@
 # Solution to Assignment 5
 
 ## 1. Identify the BioProject and SRR accession numbers from last week's paper.
-BioProject Number: PRJNA313294
-SRR Number: SRR3194431
+- BioProject Number: PRJNA313294
+- SRR Number: SRR3194431
 
 ## 2. Write a bash shell script 
 - Add commands to download a sequencing dataset using the SRR number. 
@@ -36,6 +36,15 @@ Can download 1,500 reads to get 10x genome coverage.
 - Generate basic statistics on the downloaded reads (e.g., number of reads, total bases, average read length).
 - Run FASTQC on the downloaded data to generate a quality report. Evaluate the report and summarize the findings.
 - Perform any necessary quality control steps (e.g., trimming, filtering) and briefly describe your process.
+
+### FastQC Report
+- The per base sequence quality of the reads was generally high. No sequences were flagged as being poor quality
+- The reads had 47% GC content
+- The per sequence GC content was quite varied but somewhat followed a normal distribution
+- The per base N content was consistently zero except for in position six in the reads
+- Sequences varied in length from 35 to 76 bp. Most sequences were greater than 72 bp
+- Two sequences appeared twice in the read set
+- There was no adapter content present in the reads
 
 ## 4. Compare sequencing platforms. 
 Search the SRA for another dataset for the same genome, but generated using a different sequencing platform (e.g., if original data was Illumina select PacBio or Oxford Nanopore).
