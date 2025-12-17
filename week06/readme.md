@@ -6,7 +6,7 @@
 - Generate a sorted and indexed BAM file using align
 - Explain the use of the Makefile
 
-## 2. Visualize the BAM ifle for both simulated reads and reads downloaded from SRA.
+## 2. Visualize the BAM file for both simulated reads and reads downloaded from SRA.
 
 ## 3. Generate alignment stats for the BAM file.
 - What percentage of reads aligned to the genome?
