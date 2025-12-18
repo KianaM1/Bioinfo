@@ -10,7 +10,7 @@ NAME=zika
 SRR=SRR3194431
 
 # Reference genome
-REF=refs/${NAME}.fa
+REF=/home/kiana/edu/week06/refs/${NAME}.fa
 
 # Read 1
 R1=reads/${SRR}_1.fastq
@@ -35,7 +35,7 @@ MAKEFLAGS += --no-builtin-rules
 # Prints the usage message
 usage:
 	@echo "#"
-	@echo "# Usage: make [all|refs|fastq|index|align|clean]"    
+	@echo "# Usage: make [all|refs|fastq|index|align|clean]"
 	@echo "#"
 
 # Obtain the reference genome
