@@ -3,20 +3,14 @@
 # NCBI genome accession number
 ACC=GCF_000882815.3
 
-# User friendly name for the genome
-NAME=zika
-
 # SRR Number
 SRR=SRR3194431
 
 # Reference genome
-REF=/home/kiana/edu/week06/refs/${NAME}.fa
+REF=/home/kiana/edu/week06/ncbi_dataset/data/${ACC}/${ACC}_ViralProj36615_genomic.fna
 
 # Read 1
 R1=reads/${SRR}_1.fastq
-
-# Read 2
-R2=reads/${SRR}_2.fastq
 
 # BAM file
 BAM=bam/${SRR}.bam
@@ -60,7 +54,7 @@ fastq:
 	fastq-dump -X ${N} --outdir reads --split-files ${SRR}
 
 	# Show some information about the reads
-	seqkit stats ${R1} ${R2}
+	seqkit stats ${R1}
 
 # Index the reference genome
 index:
@@ -73,7 +67,7 @@ align:
 	mkdir -p $(dir ${BAM})
 
 	# Align the reads
-	bwa mem -t 4 ${REF} ${R1} ${R2} | samtools sort  > ${BAM}
+	bwa mem -t 4 ${REF} ${R1} | samtools sort  > ${BAM}
 
 	# Index the BAM file
 	samtools index ${BAM}
@@ -84,7 +78,7 @@ stats:
 
 # Clean up generated files
 clean:
-	rm -rf ${REF} ${R1} ${R2} ${BAM} ${BAM}.bai
+	rm -rf ${REF} ${R1} ${BAM} ${BAM}.bai
 
 # Create necessary directories
 all: refs fastq index align stats
