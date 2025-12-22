@@ -1,7 +1,9 @@
 # Solution to Assignment 7
 
-## 1. Add code to last week's Makefile to create bigWig coverage tracks.
-- In your README.md, demonstrate the use of your Makefile to generate a BAM file for both the original data and the second sequencing data obtained with a different instrument.
+## 1. Add code to last week's Makefile to create BigWig coverage tracks.
+In your README.md, demonstrate the use of your Makefile to generate a BAM file for:
+- The original data
+- The second sequencing data obtained with a different instrument
 
 ## 2. Visualize the GFF annotations and both wiggle and BAM files in IGV.
 
