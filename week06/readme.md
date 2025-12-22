@@ -6,13 +6,15 @@ Include the following:
 - Targets to index the genome and generate a sorted and indexed BAM file using align
 
 ## 2. Explain the use of the Makefile in your project. 
+For this assignment, the goal is to download reads for my assigned virus and align them to create a BAM file using a Makefile. The first step was to download the reference genome and verify the genome was downloaded correctly. The next step was to create a reads directory and download the reads, which were then indexed and aligned. Alignment statistics were generated to confirm the action was completed successfully.
+
 Makefiles allow you to utilize a script but you can choose which steps in a pipeline you wish to run and change variables without having to rewrite the script. You can also print commands with a Makefile, which shows you the commands that would run without having to run them and if files are changed, only steps that depend on the file are rerun. (come back and change this)
 
 ## 3. Visualize the BAM files for both simulated reads and reads downloaded from SRA.
 For the reads I downloaded, I didn't see any alignment with the BAM file, as shown below.
 
 
-When I 
+When I compared the BAM file to the whole SRA viral genome, I saw a few sites of overlap, which can be seen below.
 
 ## 4. Generate alignment stats for the BAM file.
 I received the following stats were generated for the BAM file"
@@ -44,3 +46,4 @@ I downloaded 1,500 reads, which would have given me roughly 10x coverage.
 The observed average coverage is 0x.
 
 - How much does the coverage vary across the genome? (Provide a visual estimate.)
+There isn't much coverage observed across the genome. There are some small regions, but not a significant amount of coverage.
