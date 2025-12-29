@@ -86,4 +86,5 @@ AY632535.2      3106    118
 ```
 
 - Select a gene of interest. How many alignments on the forward strand cover the gene?
+
 Going back to the Week 4 assignment, there was only one gene listed in the .gff file, YP_002790881.1. This gene region encodes different proteins that aid in the virus's function, spanning the entire genome.
