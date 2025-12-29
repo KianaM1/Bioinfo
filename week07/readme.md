@@ -5,8 +5,8 @@ In your README.md, demonstrate the use of your Makefile to generate a BAM file f
 - The original data
 - The second sequencing data obtained with a different instrument
 
-## 2. Visualize the GFF annotations and both wiggle and BAM files in IGV.
-
+## 2. Visualize the GFF annotations, and both wiggle and BAM files in IGV.
+<img width="1536" height="808" alt="BMMB852_6" src="https://github.com/user-attachments/assets/b2de082c-ee71-4551-8b80-be1d65b5f9cc" />
 
 ## 3. Answer the following questions:
 For both readsets, I used the following command to generate statistics for the respective BAM files:
@@ -64,7 +64,7 @@ I used the following commands to determine the number of primary alignments for 
 ```
 samtools view -c -F 0x100 SRR3194431.bam
 ```
-I used the same commands to get the number of primary alignments for the second readset as well but with The first readset contains 1500 reads, while the second readset contains 1660. 
+I used the same commands to get the number of primary alignments for the second readset as well, but the first readset contains 1500 reads, while the second readset contains 1660. 
 
 - What coordinate has the largest observed coverage? (hint: samtools depth)
 I used the following command to determine the observed coverage for the first readset:
@@ -86,4 +86,4 @@ AY632535.2      3106    118
 ```
 
 - Select a gene of interest. How many alignments on the forward strand cover the gene?
-Going back to the Week 4 assignment, there was only one gene listed in the .gff file, YP_002790881.1. This genic region does encode for different proteins that aid in the virus's function spanning the entire genome.
+Going back to the Week 4 assignment, there was only one gene listed in the .gff file, YP_002790881.1. This gene region encodes different proteins that aid in the virus's function, spanning the entire genome.
