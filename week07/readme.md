@@ -56,10 +56,12 @@ For the second readset, SRR26779677.bam, the following output was generated:
 ```
 
 - Briefly describe the differences between the alignment in both files.
+  
 The SRR26779677 readset covers a much larger portion of the genome than the initial readset.
 
 Briefly compare the statistics for the two BAM files.
 - How many primary alignments does each of your BAM files contain?
+
 I used the following commands to determine the number of primary alignments for the first readset:
 ```
 samtools view -c -F 0x100 SRR3194431.bam
@@ -67,6 +69,7 @@ samtools view -c -F 0x100 SRR3194431.bam
 I used the same commands to get the number of primary alignments for the second readset as well, but the first readset contains 1500 reads, while the second readset contains 1660. 
 
 - What coordinate has the largest observed coverage? (hint: samtools depth)
+  
 I used the following command to determine the observed coverage for the first readset:
 ```
 samtools depth SRR3194431.bam | sort -k3,3nr | head -n 1
