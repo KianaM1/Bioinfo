@@ -1,0 +1,125 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script type="text/javascript">
+        if (window.location.hostname.indexOf(".ncbi.nlm.nih.gov") === -1) {
+            window.location.hostname = "www.ncbi.nlm.nih.gov";
+        }
+        var ncbi;
+        window.ncbi_startTime = new Date();
+    </script>
+
+    <meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="index, follow, archive" />
+    <meta name="description" content="NCBI Sequence Read Archive" />
+    <meta name="ncbi_app" content="sra-web-fe" />
+    <meta name="ncbi_db" content="sra" />
+    <meta name="ncbi_pinger_click_ping_selector" content="input:not([data-pinger-ignore]), a:not([data-pinger-ignore]), button:not([data-pinger-ignore])" />
+    <meta name="ncbi_pinger_track_stat" content="false" />
+
+    <!--meta http-equiv="Content-Security-Policy" content="default-src 'unsafe-inline' https://*.nih.gov"-->
+    <!--
+    <script src="https://cdn.ravenjs.com/3.26.2/raven.min.js" crossorigin="anonymous"></script>
+    <script type="text/javascript">if (Raven !== undefined) {
+        const host = window.location.hostname;
+        let env;
+        if (host.startsWith("www") || host.startsWith("trace")) env = "PRD";
+        else if (host.startsWith("test")) env = "DEV";
+        //else env = "SPONOMAR";
+        if (env) Raven.config("https://12bd1b9387564cf48538edc81b85a63e@sentry-relay.ncbi.nlm.nih.gov/70", {
+            environment: env,
+            release: "0.1.0"
+        }).install();
+    }</script>
+    -->
+    <script type="text/javascript" src="https://d3js.org/d3.v4.js" defer="defer"></script>
+    <script type="text/javascript" src="sra-web-jslib/js/utils.2.0000000000.js"></script>
+    <script type="text/javascript" src="sra-web-jslib/js/xslt.2.0000000000.js"></script>
+    <script type="text/javascript" src="sra-web-jslib/js/notify.1.0000000000.js"></script>
+    <script type="text/javascript" src="sra-web-jslib/js/japp.4.0000000000.js"></script>
+    <script type="text/javascript" src="sra-web-jslib/js/expander.1.0000000000.js"></script>
+    <script type="text/javascript" src="sra-web-jslib/js/tree_static.1.0000000000.js"></script>
+    <script type="text/javascript" src="sra-web-jslib/js/model.1.0000000000.js"></script>
+    <script type="text/javascript" src="sra-web-jslib/js/helpers.1.0000000000.js"></script>
+    <script type="text/javascript" src="sra-web-jslib/js/remote_data_provider.2.0000000000.js"></script>
+    <script type="text/javascript" src="sra-web-fe/js/main.0000000000.js"></script>
+    <script type="text/javascript" src="sra-web-fe/js/debug.0000000000.js" defer="defer"></script> <!-- IE 11 problem -->
+    <script type="text/javascript" src="sra-web-fe/cfg/header_footer_config.0000000000.js"></script>
+    <script type="text/javascript" src="sra-web-jslib/components/header_footer/header_footer.0000000000.js"></script>
+
+    <script type="text/javascript" src="sra-web-fe/cfg/header_menu_config.0000000000.js"></script>
+    <script type="text/javascript" src="sra-web-fe/cfg/static_config.0000000000.js"></script>
+    <script type="text/javascript" src="sra-web-fe/cfg/dbrequest_config.0000000000.js"></script>
+
+    <script type="text/javascript" src="sra-web-jslib/components/static/static.0000000000.js"></script>
+    <script type="text/javascript" src="sra-web-jslib/components/dbrequest/dbrequest.0000000000.js"></script>
+    <script type="text/javascript" src="sra-web-jslib/components/link_resolver/link_resolver.0000000000.js"></script>
+    <script type="text/javascript" src="sra-web-jslib/components/header_menu/header_menu.0000000000.js"></script>
+
+    <script type="text/javascript" src="sra-web-fe/js/run_browser_dbrequest.0000000000.js"></script>
+    <script type="text/javascript" src="sra-web-fe/js/sra_dbrequest.0000000000.js"></script>
+    <script type="text/javascript" src="sra-web-fe/js/download_dbrequest.0000000000.js"></script>
+
+    <script type="text/javascript" src="sra-web-fe/js/reads_list.0000000000.js"></script>
+    <script type="text/javascript" src="sra-web-fe/js/read_display.0000000000.js"></script>
+    <script type="text/javascript" src="sra-web-fe/js/read_sig_table.0000000000.js"></script>
+    <script type="text/javascript" src="sra-web-fe/js/read_intense_graph.0000000000.js"></script>
+    <script type="text/javascript" src="sra-web-fe/js/read_show_also.0000000000.js"></script>
+    <script type="text/javascript" src="sra-web-fe/js/tax_analysis.0000000000.js"></script>
+    <script type="text/javascript" src="sra-web-fe/js/run_analysis.0000000000.js"></script>
+    <script type="text/javascript" src="sra-web-fe/js/run_alignment.0000000000.js"></script>
+    
+    <script type="text/javascript" src="https://www.ncbi.nlm.nih.gov/core/jquery/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript">
+        jQuery.getScript("//www.ncbi.nlm.nih.gov/core/alerts/alerts.js", function () {
+            galert(['div#gsd'])
+        });
+    </script>
+    
+    <link type="text/css" href="sra-web-jslib/components/header_footer/header_footer.0000000000.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="/Traces/core/semantic.2.4/semantic.min.css" />
+    <link rel="stylesheet" type="text/css" href="sra-web-jslib/css/expander.1.0000000000.css" />
+    <link rel="stylesheet" type="text/css" href="sra-web-jslib/css/tree.3.0000000000.css" />
+    <link rel="stylesheet" type="text/css" href="sra-web-jslib/components/header_menu/header_menu.0000000000.css" />
+    <link rel="stylesheet" type="text/css" href="sra-web-fe/css/style.0000000000.css" />
+
+<!--
+    <link rel="stylesheet" type="text/css" href="sra-web-fe/css/shaked-styles.0000000000.css" />
+-->
+    <style>
+        .tree i {
+            margin-left: 1em;
+            color: #666;
+        }
+    </style>
+    <title>SRA Archive: NCBI</title>
+</head>
+<body>
+    <div class="content">
+        <div id="ph-header"></div>
+        <div id="gsd"></div>
+        <div id="ph-breadcrumb"></div>
+        <div id="ph-maincontent"></div>
+    </div>
+    <footer id="ph-footer"></footer>
+    <div class="commit-info">COMMIT_INFO</div>
+    <div class="busy ui segment">
+        <div class="ui active inverted dimmer">
+            <div class="ui text loader" id="t-spinner-loading">Loading</div>
+        </div>
+        <p></p>
+    </div>
+    <div id="ph-debug" style="display:none;"></div>
+
+    <script src="https://www.ncbi.nlm.nih.gov/core/pinger/pinger.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        if (ncbi) if (ncbi.pinger) {
+            window.ncbi.pinger.registerMutator('render', function (ping) {
+                return { ga_category: "page_global_event", ga_action: "page_is_loaded" };
+            });
+            ncbi.pinger.track();
+        }
+    </script>
+</body>
+</html>

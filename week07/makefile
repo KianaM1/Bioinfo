@@ -1,4 +1,4 @@
-# Makefile for aligning short reads with BWA + BigWig coverage tracks
+# Makefile for aligning short reads with BWA + making BigWig coverage tracks
 
 # NCBI genome accession number
 ACC=GCF_000882815.3
@@ -39,7 +39,7 @@ usage:
 	@echo "#"
 
 # Set the error handling and trace
-set -uex
+	set -uex
 
 # Obtain the reference genome
 refs:
@@ -95,13 +95,16 @@ all: refs fastq index align stats
 # Create necessary directories
 .PHONY: all refs fastq index align clean stats
 
+# Make a BigWig file
 # Index the reference genome
 findex:
 	samtools faidx ${REF}
 
 # Generate the temporary bedgraph file.
 generate:
-	LC_ALL=C; bedtools genomecov -ibam  ${BAM} -split -bg | \ sort -k1,1 -k2,2n > ${BG}
+	LC_ALL=C; bedtools genomecov -ibam  bam/${SRR}.bam -split -bg | \
+		sort -k1,1 -k2,2n > bam/${SRR}.bedgraph
+
 
 # Convert the bedgraph file to bigwig.
 convert:
