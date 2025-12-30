@@ -2,7 +2,7 @@
 
 This assignment requires the presence of a Makefile, a README.md markdown file, and a design.csv file.
 
-## 1. Reuse the last Makefile. Take the paper you were assigned to reproduce and create a design.csv file that connects the SRR numbers to the sample names.
+## Reuse the last Makefile. Take the paper you were assigned to reproduce and create a design.csv file that connects the SRR numbers to the sample names.
 
 1. Identify the sample names that connect the SRR numbers to the samples.
 2. Create a design.csv file that connects the SRR numbers to the sample names.
