@@ -10,7 +10,7 @@ To download the Variant Calling Makefile from the Bioinformatics Toolbox, I used
 ```
 bio code
 ```
-I then went to the "src," then the "recipes" directory to copy and paste the "variant-calling" Makefile into my Makefile.
+I then went to the "src" then the "recipes" directory to copy and paste the "variant-calling" Makefile into my Makefile.
 
 Using the "variant-calling" makefile template, I added the information to the Makefile with the Zika sample I have been working with this semester.
 
@@ -19,12 +19,12 @@ I then used the following command to generate the VCF file:
 make run
 ```
 I visualized the Zika SRR3194431 genome, BAM, and VCF files in IGV, as shown below.
-
+<img width="1536" height="808" alt="BMMB852_7" src="https://github.com/user-attachments/assets/f5498c3b-5406-44bf-8b0c-580bc2745510" />
 
 ## 2. Call variants for all samples.
 Run the variant calling workflow for all samples using your design.csv file.
 
-I used the following command to test run the variant calling workflow for all samples:
+I used the following command to test-run the variant calling workflow for all samples:
 ```
 cat design.csv | \
     parallel --dry-run --colsep , --header : --eta --lb -j 4 \
@@ -76,3 +76,4 @@ I used the following command to merge the VCF files:
 make merge
 ```
 Which generated the merged VCF file. I visualized it in IGV, which can be seen below:
+<img width="1536" height="808" alt="BMMB852_8" src="https://github.com/user-attachments/assets/0e373df1-9dda-49f6-b6d7-fb0f742a4f1d" />
