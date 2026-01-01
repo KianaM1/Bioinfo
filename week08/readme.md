@@ -1,12 +1,12 @@
 # Solution to Assignment 8
 
 ## 1. Identify the sample names that connect the SRR numbers to the samples.
-To do this, I went to the Zika paper, found the accesstion number, and went to the list of SRA experiments that were performed. I then listed the SRR numbers according to their condition, as shown in the design.csv file.
+To do this, I went to the Zika paper, found the accession number, and went to the list of SRA experiments that were performed. I then listed the SRR numbers according to their condition, as shown in the design.csv file.
 
 ## 2. Create a design.csv file that connects the SRR numbers to the sample names.
 Following the example provided in the handbook, I made a design.csv file for the eight SRR numbers from the paper.
 
-## 3. Create a Makefile that can produce multiple BAM alignment files (you can reuse the one from the previous assignment) where from an SRR you can produce a BAM alignment file named after the sample name.
+## 3. Create a Makefile that can produce multiple BAM alignment files (you can reuse the one from the previous assignment), where from an SRR you can produce a BAM alignment file named after the sample name.
 I reused the Makefile from last week's assignment, but I added the commands to make a BigWig file to the "all" command. This ensures the BigWig files are made when running the GNU parallel.
 
 ## 4. Using GNU parallel, run the Makefile on all samples.
@@ -40,7 +40,7 @@ ETA: 0s Left: 1 AVG: 0.00s  local:1/7/100%/0.1s make SRR=SRR3194431 SAMPLE=Sampl
 ETA: 0s Left: 0 AVG: 0.00s  local:0/8/100%/0.1s
 ```
 
-I did see one warning (shown above), but I didn't know what it meant so I ran the parallel just to see if it would cause any issues. I used the following command to run all of the functions:
+I did see one warning (shown above), but I didn't know what it meant, so I ran the parallel just to see if it would cause any issues. I used the following command to run all of the functions:
 ```
 cat design.csv |     parallel --colsep , --header : --eta --lb -j 4
        make              SRR={Run}              SAMPLE={Sample}
