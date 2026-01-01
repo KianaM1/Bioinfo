@@ -1,0 +1,9 @@
+Run,Sample,Group,Condition
+SRR3191542,Sample1,Control,Mock1_1
+SRR3194428,Sample2,Control,Mock1_2
+SRR3191543,Sample3,Control,Mock2_1
+SRR3194429,Sample4,Control,Mock2_2
+SRR3191544,Sample5,Virus,Zika1_1
+SRR3194430,Sample6,Virus,Zika1_2
+SRR3191545,Sample7,Virus,Zika2_1
+SRR3194431,Sample8,Virus,Zika2_2
