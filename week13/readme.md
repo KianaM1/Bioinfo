@@ -1,7 +1,7 @@
 # Solution to Assignment 13
 
 ## 1. Write a Makefile that aligns the reads to the genome and creates BAM and BigWig files.
-I decided to reuse the data and code from the Biostar Workflows: RNA-Seq with Hisat2 chapter in the website. This project contained two datasets: the Universal Human Reference (UHR), which contains RNA from 10 cancer cell lines, and the Human Brain Reference (HBR), which contains RNA from the brains of twenty-three individuals of European descent (both male and female of varying ages, but mainly sixty to eighty years old).
+I decided to reuse the data and code from the Biostar Workflows: RNA-Seq with Hisat2 chapter on the website. This project contained two datasets: the Universal Human Reference (UHR), which contains RNA from 10 cancer cell lines, and the Human Brain Reference (HBR), which contains RNA from the brains of twenty-three individuals of European descent (both male and female of varying ages, but mainly sixty to eighty years old).
 
 Download and unpack the data using the following command:
 ```
@@ -11,9 +11,9 @@ wget -nc  http://data.biostarhandbook.com/data/uhr-hbr.tar.gz
 # Unpack the data
 tar xzvf uhr-hbr.tar.gz
 ```
-This commnand downloads the data and creates the `reads` and `refs` directories. For this assignment, I'm only using human chromosome twenty-two as a reference.
+This command downloads the data and creates the `reads` and `refs` directories. For this assignment, I'm only using human chromosome twenty-two as a reference.
 
-I then investigated the files present in the `refs` directory, a FASTA genome file, GTF file, and FASTA transcriptome file, using the following commands:
+I then investigated the files present in the `refs` directory: a FASTA genome file, a GTF file, and a FASTA transcriptome file, using the following commands:
 ```
 seqkit stats refs/*.fa
 ```
@@ -57,11 +57,9 @@ Then I aligned the samples using the following command:
 make align
 ```
 This generated BAM, BAI, BedGraph, and BigWig files for each of the samples. I visualized the BigWig and GTF files in IGV.
+<img width="1536" height="808" alt="BMMB852_12" src="https://github.com/user-attachments/assets/e4352feb-8ed1-4fa3-8c50-b70e9f0a735e" />
 
 ## 2. Run a feature counter to create a count matrix for your data. 
-- The final result of your code should be a count matrix that summarizes read counts for each dataset.
-- Include IGV screenshots that demonstrate your data is RNA-Seq data.
-
 First, I made the counts.txt file using the following command:
 ```
 make res/counts-hisat.txt
@@ -126,4 +124,7 @@ ENSG00000215270.3,TOMM40P2,0,0,0,11,6,6
 ENSG00000229286.1,ENSG00000229286,0,0,0,0,0,0
 ENSG00000233866.1,ENSG00000233866,0,0,0,0,2,0
 ```
-This selection is from lines 42-52, and demonstrates varying distribution of some genes in the samples. For example, the genes DUXAP8 and ENSG00000272872 are highly expressed in the UHR samples, but not in the HBR samples. This trend is present in several of the genes shown above. Otherwise, the genes are not present/expressed in any of the samples.
+This selection is from lines 42-52 and demonstrates the varying distribution of some genes in the samples. For example, the genes DUXAP8 and ENSG00000272872 are highly expressed in the UHR samples, but not in the HBR samples. This trend is present in several of the genes shown above. Otherwise, the genes are not present/expressed in any of the samples.
+
+In IGV, I found a region of the genome where a gene appears to be highly expressed in all six of the samples, shown below:
+<img width="1536" height="808" alt="BMMB852_13" src="https://github.com/user-attachments/assets/1f53ada0-2c16-4acd-950b-8c84eaa837cb" />
