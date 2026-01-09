@@ -19,7 +19,7 @@ Initializing  PROPER ... done
 ```
 This created two design.csv files, one with the genes and the changes and expression of each gene (counts.csv), and one with the sample names (design.csv).
 
-Next, I used the following command to determine the number of genes that pass the false discovery rate, or likely had genes changed:
+Next, I used the following command to determine the number of genes that passed the false discovery rate, or likely had genes changed:
 ```
 Rscript src/r/edger.r -c counts.csv -d design.csv
 ```
@@ -72,7 +72,7 @@ fitting model and testing
 # Significant FDRs: 168 ( 2.6 %)
 # Results: deseq2.csv
 ```
-This tool gave a slightly higher number for genes detected (FDR), than EDGER.
+This tool gave a slightly higher number for genes detected (FDR) than EDGER.
 
 ## 1. Generate PCA and heatmap visualizations of your data
 To generate the PCA plot, I used the following command:
@@ -99,6 +99,7 @@ i The deprecated feature was likely used in the DESeq2 package.
 # PCA plot: pca.pdf
 ```
 Here is the PCA plot that was generated:
+[pca.pdf](https://github.com/user-attachments/files/24532375/pca.pdf)
 
 To generate the heatmap, I used the following commands:
 ```
@@ -119,6 +120,7 @@ null device
 # Output: heatmap.pdf
 ```
 Here is the generated heatmap:
+[heatmap.pdf](https://github.com/user-attachments/files/24532378/heatmap.pdf)
 
 ## 2. Identify a set of differentially expressed genes or transcripts
 To determine the differentially expressed genes, I used the following command:
