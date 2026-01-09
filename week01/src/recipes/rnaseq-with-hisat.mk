@@ -1,17 +1,8 @@
-# Makefile for RNA-Seq Functional Analysis
-
-## Variables
-# Root of the file name
-SAMPLE = HBR_1
-
-# Input read file
-R1 = reads/${SAMPLE}_R1.fq
-
-# Output alignment file
-BAM = bam/${SAMPLE}.bam
-
-# Output coverage file
-BW = bam/${SAMPLE}.bw
+#
+# Minimal RNA-Seq with hisat2.
+#
+# Docs: https://www.biostarhandbook.com/
+# 
 
 # The URL for the data.
 DATA_URL = http://data.biostarhandbook.com/data/uhr-hbr.tar.gz
@@ -28,14 +19,11 @@ GTF=refs/chr22.gtf
 # The counts in tab delimited format.
 COUNTS_TXT = res/counts-hisat.txt
 
-# Counts file
-COUNTS ?= counts.csv
+# Final combinted counts in CSV format.
+COUNTS = res/counts-hisat.csv
 
-# Design file
-DESIGN ?= design.csv
-
-# Edger results file
-RESULT = edger.csv
+# The design file
+DESIGN = design.csv
 
 # Makefile settings
 SHELL := bash
@@ -74,17 +62,16 @@ usage:
 	@echo "# make all    (runs all steps)"
 	@echo "#"
 
-## Workflow
 # Generate the design file.
 ${DESIGN}:
 	@cat << EOF > ${DESIGN}
 	sample,group
-	A1,A
-	A2,A
-	A3,A
-	B1,B
-	B2,B
-	B3,B
+	HBR_1,HBR
+	HBR_2,HBR
+	HBR_3,HBR
+	UHR_1,UHR
+	UHR_2,UHR
+	UHR_3,UHR
 	EOF
 
 # Show the design file.
@@ -134,37 +121,6 @@ count: ${COUNTS}
 	@ls -lh ${COUNTS_TXT}
 	@ls -lh ${COUNTS}
 
-# Simulate the read counts
-counts:
-	bio code
-	Rscript src/r/simulate_counts.r
+all: data index align count
 
-# Determine the false discovery rate (FDR) with EDGER
-edger:
-	Rscript src/r/edger.r -c ${COUNTS} -d ${DESIGN}
-
-# Determine the FDR with DESEQ2
-deseq2:
-	Rscript src/r/deseq2.r -c ${COUNTS} -d ${DESIGN}
-
-# Generate a PCA plot
-PCA:
-	src/r/plot_pca.r -c ${RESULT} -d ${DESIGN} -o pca.pdf
-
-# Generate a heatmap
-heatmap:
-	src/r/plot_heatmap.r -c ${RESULT} -d ${DESIGN} -o heatmap.pdf
-
-# Identify differentially expressed genes
-gene:
-	cat ${RESULT} | cut -f 1 -d ,  | head -10
-
-# Perform functional enrichment analysis
-enrichment:
-	# Run g:Profiler to find the functional enrichment of the genes
-	bio gprofiler -c ${RESULT} -d hsapiens
-	bio enrichr -c ${RESULT}
-
-all: data index align count counts edger deseq2 PCA heatmap gene enrichment
-
-.PHONY: usage design data index align count counts edger deseq2 PCA heatmap gene enrichment all
+.PHONY: usage design data index align count all

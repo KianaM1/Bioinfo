@@ -1,6 +1,4 @@
-# Solution ot Assignment 14
-Perform a differential expression analysis on an RNA-Seq count matrix. This assignment builds upon your previous work, extending the analysis pipeline from read mapping and quantification to differential expression and functional enrichment.
-
+# Solution to Assignment 14
 First, I simulated the read counts using the following command in the stats environment:
 ```
 bio code
@@ -165,3 +163,24 @@ Running g:Profiler
 # Found 377 functions
 # Output: gprofiler.csv
 ```
+This created the file "gprofiler.csv."
+
+Next, I ran Enrichr to determine the functions of the genes in the file. I used the following command:
+```
+bio enrichr -c edger.csv
+```
+Which gave me the following output:
+```
+Running Enrichr
+# Counts: edger.csv
+# Organism: mmusculus
+# Name column: gene
+# Pval column: FDR < 0.05
+# Gene count: 279
+# Genes: IGLC2,SEPTIN3,SYNGR1,MIAT,SEZ6L,[...]
+# Submitting to Enrichr
+# User list id: 114734475
+# Entries: 95
+# Output: enrichr.csv
+```
+This created the file "enrichr.csv," which lists different functional processes and the genes associated with them.
