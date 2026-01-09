@@ -80,6 +80,7 @@ This resulted in the creation of several files in the vcf/isec directory, includ
 - 0002.vcf: contains variants present in both samples
 
 The three VCF files are seen in IGV here:
+<img width="1536" height="806" alt="BMMB852_14" src="https://github.com/user-attachments/assets/5df040df-078f-429f-b8e2-aeece6e690f8" />
 
 The tumor VCF file appears to have many more variants than the reference genome. 
 
@@ -90,5 +91,6 @@ wget https://ftp-trace.ncbi.nlm.nih.gov/ReferenceSamples/giab/data_somatic/HG008
 ```
 
 I then loaded the file in IGV, which can be seen here:
+<img width="1536" height="806" alt="BMMB852_15" src="https://github.com/user-attachments/assets/4ec7c30b-9f0f-41a2-9a50-0315ec625e9e" />
 
 I believe there are fewer variants present in the gold standard genome compared to both the reference and tumor samples. Interestingly, every variant present in the gold standard is present in the tumor sample.
